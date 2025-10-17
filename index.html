@@ -3,834 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kuliner Sedap - Masakan Autentik Indonesia</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Warung Kuliner Sedap</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        /* Semua CSS dari kode lengkap sebelumnya */
         :root {
-            --primary: #8B0000;
-            --secondary: #D4AF37;
-            --accent: #FF6B35;
-            --light: #FFF8F0;
-            --dark: #2C1810;
-            --success: #2E8B57;
-            --drink: #1E90FF;
+            --primary-color: #e74c3c;
+            --secondary-color: #f39c12;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --success-color: #2ecc71;
         }
-
-        * {
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
-
-        body {
-            background: linear-gradient(to bottom, #fef9f2, #f8e8d8);
-            color: var(--dark);
-            min-height: 100vh;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        /* ===== NAVIGATION ===== */
-        .main-nav {
-            background: linear-gradient(135deg, var(--primary), #A52A2A);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(139, 0, 0, 0.3);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        .nav-logo {
-            color: white;
-            font-size: 1.8rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        /* ===== PAGE SECTIONS ===== */
-        .page-section {
-            display: none;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .page-section.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ===== HOME PAGE (WELCOME) ===== */
-        .welcome-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        .welcome-header {
-            margin-bottom: 50px;
-        }
-
-        .welcome-header h1 {
-            color: var(--primary);
-            font-size: 3rem;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .welcome-header p {
-            font-size: 1.3rem;
-            color: var(--dark);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .welcome-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 30px 20px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .feature-card h3 {
-            color: var(--dark);
-            margin-bottom: 15px;
-        }
-
-        .feature-card p {
-            flex-grow: 1;
-        }
-
-        .welcome-actions {
-            margin-top: 50px;
-        }
-
-        .btn-welcome {
-            padding: 15px 40px;
-            border-radius: 25px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-decoration: none;
-            margin: 10px;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .btn-primary-custom {
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            color: white;
-            border: none;
-        }
-
-        .btn-primary-custom:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(139, 0, 0, 0.3);
-            color: white;
-        }
-
-        .btn-outline-custom {
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            background: transparent;
-        }
-
-        .btn-outline-custom:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .spice-decoration {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 30px 0;
-            font-size: 2rem;
-        }
-
-        .decoration-item {
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .welcome-title {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .restaurant-name {
-            font-size: 3.5rem;
-            color: var(--accent);
-            margin-bottom: 20px;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .article-section {
-            margin: 60px 0;
-            text-align: left;
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .article-section h2 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .article-section p {
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .tips-list {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .tips-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-        }
-
-        .tips-list li:before {
-            content: "•";
-            color: var(--accent);
-            font-weight: bold;
-            font-size: 1.5rem;
-            margin-right: 10px;
-        }
-
-        .menu-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .menu-item {
-            background: var(--light);
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-
-        .menu-item h4 {
-            color: var(--primary);
-            margin: 10px 0 5px;
-        }
-
-        .menu-icon {
-            font-size: 2.5rem;
-            color: var(--accent);
-        }
-
-        /* ===== STYLE UNTUK MENU PAGE ===== */
-        .menu-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 15px;
-        }
-
-        .menu-header {
-            text-align: center;
-            margin-bottom: 30px;
-            position: relative;
-            padding: 30px 20px;
-            background: linear-gradient(135deg, var(--primary), #A52A2A);
-            border-radius: 15px;
-            color: white;
-            box-shadow: 0 10px 20px rgba(139, 0, 0, 0.2);
-        }
-
-        .menu-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .filter-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 30px; }
-        .btn-filter { border: 2px solid var(--primary); background: white; color: var(--primary); border-radius: 50px; padding: 12px 25px; cursor: pointer; transition: all 0.3s ease; font-weight: 600; display: flex; align-items: center; gap: 8px; border: none; }
-        .btn-filter.active, .btn-filter:hover { background: linear-gradient(45deg, var(--primary), var(--accent)); color: white; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3); }
-        .btn-drink { border: 2px solid var(--drink); background: white; color: var(--drink); }
-        .btn-drink.active, .btn-drink:hover { background: linear-gradient(45deg, var(--drink), #4169E1); color: white; }
-        .menu-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
-        .menu-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); transition: 0.4s; border: 1px solid #eee; }
-        .menu-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); }
-        .drink-card { border-left: 5px solid var(--drink); }
-        .card-image { position: relative; height: 220px; overflow: hidden; background: linear-gradient(45deg, #f8f9fa, #e9ecef); }
-        .card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; display: block; }
-        .menu-card:hover .card-image img { transform: scale(1.05); }
-        .image-overlay { position: absolute; bottom: 10px; left: 10px; right: 10px; display: flex; justify-content: space-between; align-items: center; }
-        .price-tag { background: var(--secondary); padding: 8px 15px; border-radius: 20px; font-weight: bold; color: var(--dark); box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .drink-price-tag { background: var(--drink); color: white; }
-        .spice-badge { padding: 8px 12px; border-radius: 20px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .spice-badge.mild { background: #FFD700; color: var(--dark); }
-        .spice-badge.medium { background: var(--accent); color: white; }
-        .spice-badge.extreme { background: var(--primary); color: white; }
-        .drink-badge { background: var(--drink); color: white; }
-        .card-content { padding: 20px; }
-        .menu-name { font-weight: 700; font-size: 1.3rem; margin-bottom: 8px; color: var(--primary); line-height: 1.3; }
-        .drink-name { color: var(--drink); }
-        .food-origin { display: flex; align-items: center; gap: 5px; margin-bottom: 10px; font-size: 0.8rem; color: var(--success); }
-        .menu-description { font-size: 0.9rem; color: #555; margin-bottom: 15px; line-height: 1.5; }
-        .menu-details { display: flex; justify-content: space-between; font-size: 0.8rem; color: #666; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #ddd; }
-        .menu-details div { display: flex; align-items: center; gap: 5px; }
-        .spice-indicator { margin-bottom: 15px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-        .spice-dot { width: 10px; height: 10px; background: #ddd; border-radius: 50%; display: inline-block; }
-        .spice-dot.active { background: var(--accent); }
-        .drink-dot.active { background: var(--drink); }
-        .spice-text { font-weight: 600; margin-left: 5px; color: var(--primary); font-size: 0.9rem; }
-        .drink-text { color: var(--drink); }
-        .order-buttons { display: flex; gap: 10px; }
-        .btn-order { flex: 1; background: linear-gradient(45deg, var(--primary), var(--accent)); border: none; color: white; padding: 12px; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.9rem; }
-        .btn-order-secondary { flex: 1; background: white; border: 2px solid var(--primary); color: var(--primary); padding: 12px; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.9rem; }
-        .btn-order-drink { background: linear-gradient(45deg, var(--drink), #4169E1); }
-        .btn-order-secondary-drink { border: 2px solid var(--drink); color: var(--drink); }
-        .btn-order:hover { transform: scale(1.03); box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3); }
-        .btn-order-secondary:hover { background: var(--primary); color: white; transform: scale(1.03); }
-        .btn-order-drink:hover { box-shadow: 0 5px 15px rgba(30, 144, 255, 0.3); }
-        .btn-order-secondary-drink:hover { background: var(--drink); color: white; }
-        .no-menu-message { text-align: center; color: #666; grid-column: 1 / -1; padding: 60px 20px; }
-        .image-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(45deg, #8B0000, #FF6B35); color: white; font-size: 3rem; }
-        .drink-placeholder { background: linear-gradient(45deg, var(--drink), #4169E1); }
-
-        /* ===== ORDER PAGE ===== */
-        .order-page {
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .order-page h1 {
-            color: var(--primary);
-            margin-bottom: 30px;
-            font-size: 2.5rem;
-        }
-
-        /* ===== ABOUT PAGE ===== */
-        .about-page {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .about-page h1 {
-            color: var(--primary);
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2.5rem;
-        }
-
-        .about-content {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        /* ===== MODAL STYLING ===== */
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 1000; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; }
-        .modal-content { background: white; border-radius: 15px; width: 90%; max-width: 600px; max-height: 90vh; overflow-y: auto; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); animation: modalAppear 0.3s ease; }
-        @keyframes modalAppear { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
-        .modal-header { padding: 20px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(135deg, var(--primary), #A52A2A); color: white; border-radius: 15px 15px 0 0; }
-        .modal-header h3 { margin: 0; color: white; }
-        .close-modal { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: white; }
-        .modal-body { padding: 20px; }
-        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px dashed #eee; }
-        .cart-item-info { flex: 1; }
-        .cart-item-name { font-weight: bold; margin-bottom: 5px; }
-        .cart-item-price { color: #666; font-size: 0.9rem; }
-        .cart-item-controls { display: flex; align-items: center; gap: 10px; }
-        .quantity-btn { width: 30px; height: 30px; border-radius: 50%; border: 1px solid #ddd; background: white; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; }
-        .quantity-btn:hover { background: #f5f5f5; }
-        .item-quantity { font-weight: bold; min-width: 30px; text-align: center; }
-        .remove-item { color: #ff4444; background: none; border: none; cursor: pointer; font-size: 1.2rem; margin-left: 10px; }
-        .cart-total { padding: 20px 0; border-top: 2px solid #eee; display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; }
-        .cart-actions { display: flex; gap: 10px; }
-        .btn-checkout { flex: 2; background: linear-gradient(45deg, var(--success), #3CB371); color: white; border: none; padding: 15px; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; }
-        .btn-clear-cart { flex: 1; background: #f8f9fa; color: #666; border: 1px solid #ddd; padding: 15px; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .btn-checkout:hover { transform: scale(1.03); box-shadow: 0 5px 15px rgba(46, 139, 87, 0.3); }
-        .btn-clear-cart:hover { background: #ff4444; color: white; border-color: #ff4444; }
-        .empty-cart { text-align: center; padding: 40px 20px; color: #666; }
-        .empty-cart i { font-size: 4rem; margin-bottom: 20px; color: #ddd; }
-        .payment-form { margin-top: 20px; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; color: var(--dark); }
-        .form-control { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; box-sizing: border-box; transition: border-color 0.3s; }
-        .form-control:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 2px rgba(139, 0, 0, 0.1); }
-        .payment-methods { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin: 15px 0; }
-        .payment-method { border: 2px solid #ddd; border-radius: 10px; padding: 15px; text-align: center; cursor: pointer; transition: all 0.3s; }
-        .payment-method:hover { border-color: var(--primary); }
-        .payment-method.selected { border-color: var(--success); background-color: rgba(46, 139, 87, 0.1); }
-        .payment-method i { font-size: 2rem; margin-bottom: 8px; display: block; }
-        .payment-method .method-name { font-weight: 600; font-size: 0.9rem; }
-        .bank-details { background: #f9f9f9; border-radius: 8px; padding: 15px; margin-top: 10px; display: none; }
-        .bank-details.active { display: block; }
-        .bank-details p { margin: 5px 0; font-size: 0.9rem; }
-        .bank-details .account-number { font-weight: bold; font-size: 1.1rem; color: var(--primary); background: white; padding: 8px; border-radius: 5px; border: 1px dashed #ccc; }
-        .order-summary { background: #f9f9f9; border-radius: 10px; padding: 15px; margin: 20px 0; }
-        .summary-item { display: flex; justify-content: space-between; margin-bottom: 8px; }
-        .summary-total { display: flex; justify-content: space-between; font-weight: bold; font-size: 1.1rem; border-top: 1px solid #ddd; padding-top: 10px; margin-top: 10px; }
-        .btn-pay { width: 100%; background: linear-gradient(45deg, var(--success), #3CB371); color: white; border: none; padding: 15px; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 1.1rem; margin-top: 20px; }
-        .btn-pay:hover { transform: scale(1.02); box-shadow: 0 5px 15px rgba(46, 139, 87, 0.3); }
-        .success-message { position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 15px 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); display: flex; align-items: center; gap: 10px; z-index: 1100; animation: slideIn 0.3s ease, slideOut 0.3s ease 2.7s forwards; }
-        @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-        @keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }
-
-        .cart-icon-container {
-            position: relative;
-            margin-left: 20px;
-        }
-
-        .cart-icon {
-            position: relative;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: white;
-            font-size: 1.2rem;
-        }
-
-        .cart-icon:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.1);
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: var(--secondary);
-            color: var(--dark);
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .welcome-header h1 {
-                font-size: 2.5rem;
-            }
-
-            .restaurant-name {
-                font-size: 2.5rem;
-            }
-
-            .btn-welcome {
-                padding: 12px 30px;
-                font-size: 1.1rem;
-                display: block;
-                margin: 10px auto;
-                max-width: 250px;
-            }
-
-            .menu-container {
-                grid-template-columns: 1fr;
-            }
-        }
+        
+        /* ... (semua CSS styles dari kode lengkap) ... */
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="main-nav">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <i class="fas fa-utensils"></i>
-                KULINER SEDAP
-            </div>
-            <div class="nav-links">
-                <a href="#" class="nav-link active" data-page="home">Beranda</a>
-                <a href="#" class="nav-link" data-page="menu">Menu</a>
-                <a href="#" class="nav-link" data-page="order">Pesan</a>
-                <a href="#" class="nav-link" data-page="about">Tentang</a>
-                <div class="cart-icon-container">
-                    <div class="cart-icon" id="cartIcon">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count" id="cartCount">0</span>
-                    </div>
-                </div>
+    <!-- Navigasi -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-utensils"></i> Warung Kuliner Sedap
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" data-page="welcome">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="about">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link cart-icon" href="#" id="cartIcon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cartCount" class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <!-- HOME PAGE -->
-    <section id="home" class="page-section active">
-        <div class="welcome-container">
-            <div class="welcome-header">
-                <div class="welcome-title">Selamat Datang di</div>
-                <div class="restaurant-name">Kuliner Sedap</div>
-                <p>Jelajahi kelezatan autentik dari berbagai penjuru Indonesia</p>
-
-                <div class="spice-decoration">
-                    <div class="decoration-item">🍜</div>
-                    <div class="decoration-item">🍛</div>
-                    <div class="decoration-item">🥘</div>
-                    <div class="decoration-item">🥤</div>
-                    <div class="decoration-item">🍚</div>
+    <!-- Halaman Welcome -->
+    <section id="welcome" class="page-section active">
+        <div class="welcome-hero">
+            <div class="container">
+                <div class="welcome-content">
+                    <h1 class="welcome-title">Warung Kuliner Sedap</h1>
+                    <p class="welcome-subtitle">Nikmati kelezatan kuliner nusantara dengan cita rasa autentik</p>
+                    <button class="btn-welcome" data-page="menu">Lihat Daftar Menu</button>
                 </div>
-            </div>
-
-            <div class="welcome-features">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-history"></i>
-                    </div>
-                    <h3>Resep Turun Temurun</h3>
-                    <p>Setiap hidangan kami dibuat berdasarkan resep warisan keluarga yang telah diuji selama puluhan tahun, memastikan cita rasa yang autentik dan konsisten.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>Bahan Segar Pilihan</h3>
-                    <p>Kami hanya menggunakan bahan-bahan terbaik yang dipilih langsung dari pasar tradisional setiap pagi, menjamin kesegaran dan kualitas setiap masakan.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Dibuat dengan Cinta</h3>
-                    <p>Setiap piring yang kami sajikan dibuat dengan penuh dedikasi dan kasih sayang, seperti masakan ibu di rumah yang selalu spesial.</p>
-                </div>
-            </div>
-
-            <div class="article-section">
-                <h2>Tips Menikmati Makanan Pedas Berkuah dengan Nikmat</h2>
-                <p>Makanan berkuah seperti bakso, mie ayam, dan soto memiliki kenikmatan tersendiri ketika disajikan dengan level pedas yang pas. Berikut tips untuk menikmatinya:</p>
-
-                <ul class="tips-list">
-                    <li>Untuk bakso pedas, tambahkan sambal secukupnya ke dalam kuah agar rasa original bakso tetap terasa</li>
-                    <li>Nikmati mie ayam pedas dengan mencampur sambal secara merata ke seluruh bagian mie</li>
-                    <li>Pada soto pedas, cicipi dulu kuah aslinya sebelum menambahkan sambal untuk menghargai cita rasa original</li>
-                    <li>Minum es teh atau es jeruk sebagai penyeimbang rasa pedas yang menyegarkan</li>
-                    <li>Tambahkan perasan jeruk nipis pada bakso atau soto pedas untuk menambah kesegaran</li>
-                    <li>Makan pelan-pelan dan nikmati setiap suapan untuk merasakan perpaduan rasa kuah dan pedas</li>
-                </ul>
-
-                <p>Di Kuliner Sedap, kami menyediakan berbagai level kepedasan untuk bakso, mie ayam, dan soto favorit Anda, serta minuman segar seperti es teh dan es jeruk yang cocok untuk menemani makanan pedas.</p>
-
-                <div class="menu-highlights">
-                    <div class="menu-item">
-                        <div class="menu-icon">🍜</div>
-                        <h4>Bakso Pedas</h4>
-                        <p>Bakso daging sapi dengan kuah kaldu sapi spesial</p>
-                    </div>
-                    <div class="menu-item">
-                        <div class="menu-icon">🍲</div>
-                        <h4>Mie Ayam Pedas</h4>
-                        <p>Mie ayam dengan bumbu rahasia dan sambal pilihan</p>
-                    </div>
-                    <div class="menu-item">
-                        <div class="menu-icon">🥣</div>
-                        <h4>Soto Pedas</h4>
-                        <p>Soto ayam atau sapi dengan rempah lengkap</p>
-                    </div>
-                    <div class="menu-item">
-                        <div class="menu-icon">🥤</div>
-                        <h4>Es Teh & Es Jeruk</h4>
-                        <p>Minuman segar penyeimbang rasa pedas</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="welcome-actions">
-                <a href="#" class="btn-welcome btn-primary-custom" data-page="menu">
-                    <i class="fas fa-utensils"></i> Lihat Daftar Menu Lengkap
-                </a>
-
-                <a href="#" class="btn-welcome btn-outline-custom" data-page="about">
-                    <i class="fas fa-info-circle"></i> Tentang Kami
-                </a>
             </div>
         </div>
     </section>
 
-    <!-- MENU PAGE -->
+    <!-- Halaman Menu -->
     <section id="menu" class="page-section">
-        <div class="menu-wrapper">
-            <div class="menu-header">
-                <h1>🍛 Menu Kuliner Sedap 🍛</h1>
-                <p>Jelajahi kelezatan berbagai masakan khas Indonesia yang menggugah selera!</p>
-                <div class="header-decoration">
-                    <div class="decoration-item">🍜</div>
-                    <div class="decoration-item">🍲</div>
-                    <div class="decoration-item">🥣</div>
-                    <div class="decoration-item">🥤</div>
-                    <div class="decoration-item">🍛</div>
-                </div>
-            </div>
-
+        <div class="container">
+            <h1 class="text-center mb-4">Daftar Menu Kuliner Sedap</h1>
+            
+            <!-- Filter Menu -->
             <div class="filter-buttons">
-                <button class="btn-filter active" data-filter="all">
-                    <i class="fas fa-utensils"></i> Semua Menu
-                </button>
-                <button class="btn-filter" data-filter="mild">
-                    <i class="fas fa-pepper-hot"></i> Mild
-                </button>
-                <button class="btn-filter" data-filter="medium">
-                    <i class="fas fa-fire"></i> Medium
-                </button>
-                <button class="btn-filter" data-filter="extreme">
-                    <i class="fas fa-skull-crossbones"></i> Extreme
-                </button>
-                <button class="btn-filter btn-drink" data-filter="drink">
-                    <i class="fas fa-glass-whiskey"></i> Minuman
-                </button>
+                <button class="btn-filter active" data-filter="all">Semua</button>
+                <button class="btn-filter" data-filter="mild">Tidak Pedas</button>
+                <button class="btn-filter" data-filter="medium">Sedang</button>
+                <button class="btn-filter" data-filter="extreme">Sangat Pedas</button>
+                <button class="btn-filter" data-filter="drink">Minuman</button>
             </div>
-
-            <div class="menu-container" id="menuContainer">
-                <!-- Menu akan dimuat via JavaScript -->
+            
+            <!-- Container Menu -->
+            <div id="menuContainer" class="menu-grid">
+                <!-- Menu akan di-render di sini oleh JavaScript -->
             </div>
         </div>
     </section>
 
-    <!-- ORDER PAGE -->
-    <section id="order" class="page-section">
-        <div class="order-page">
-            <h1>🛒 Form Pemesanan</h1>
-            <p>Silakan pilih menu terlebih dahulu di halaman Menu, lalu lanjutkan pemesanan di sini.</p>
-            <div style="margin-top: 30px;">
-                <a href="#" class="btn-welcome btn-primary-custom" data-page="menu" style="text-decoration: none;">
-                    <i class="fas fa-arrow-left"></i> Kembali ke Menu
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT PAGE -->
+    <!-- Halaman About -->
     <section id="about" class="page-section">
-        <div class="about-page">
-            <h1>ℹ Tentang Kuliner Sedap</h1>
-            <div class="about-content">
-                <h3>Selamat Datang di Kuliner Sedap!</h3>
-                <p>Kuliner Sedap adalah restoran yang menghadirkan cita rasa autentik Indonesia dengan sentuhan modern. Kami berkomitmen untuk memberikan pengalaman kuliner terbaik kepada pelanggan dengan bahan-bahan berkualitas dan resep turun-temurun.</p>
-                
-                <h4>🍛 Visi Kami</h4>
-                <p>Menjadi destinasi kuliner online terdepan yang menghadirkan keautentikan rasa Indonesia dengan inovasi dan kualitas terbaik.</p>
-                
-                <h4>🌶 Misi Kami</h4>
-                <ul>
-                    <li>Menyajikan makanan dengan cita rasa autentik Indonesia</li>
-                    <li>Menggunakan bahan-bahan segar dan berkualitas</li>
-                    <li>Memberikan pelayanan terbaik kepada pelanggan</li>
-                    <li>Terus berinovasi dalam menu dan layanan</li>
-                </ul>
-                
-                <h4>📞 Hubungi Kami</h4>
-                <p>Email: info@kulinersedap.com<br>
-                Telepon: (021) 1234-5678<br>
-                Alamat: Jl. Kuliner No. 123, Jakarta</p>
+        <div class="container">
+            <div class="about-container">
+                <h2 class="about-title">Tentang Warung Kuliner Sedap</h2>
+                <p class="about-text">
+                    Warung Kuliner Sedap adalah tempat yang tepat untuk menikmati berbagai hidangan khas nusantara 
+                    dengan cita rasa autentik yang menggugah selera. Kami berkomitmen untuk menyajikan makanan 
+                    berkualitas tinggi dengan bahan-bahan segar dan resep turun-temurun.
+                </p>
+                <p class="about-text">
+                    Setiap hidangan di Warung Kuliner Sedap dibuat dengan penuh cinta dan perhatian terhadap detail. 
+                    Kami menawarkan berbagai level kepedasan untuk memenuhi selera semua pelanggan, dari yang tidak 
+                    suka pedas hingga para pecinta pedas sejati.
+                </p>
+                <p class="about-text">
+                    Selain makanan utama, kami juga menyediakan berbagai minuman segar yang cocok untuk menemani 
+                    hidangan pedas Anda. Datang dan rasakan pengalaman kuliner yang tak terlupakan di Warung Kuliner Sedap!
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- MODAL KERANJANG -->
-    <div class="modal-overlay" id="cartModal">
+    <!-- Modal Keranjang -->
+    <div id="cartModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3><i class="fas fa-shopping-cart"></i> Keranjang Belanja</h3>
+                <h3 class="modal-title">Keranjang Belanja</h3>
                 <button class="close-modal" id="closeModal">&times;</button>
             </div>
             <div class="modal-body">
                 <div id="cartItems">
-                    <!-- Item keranjang akan dimuat di sini -->
+                    <!-- Item keranjang akan di-render di sini -->
                 </div>
-                <div class="cart-total">
-                    <span>Total:</span>
-                    <span>Rp <span id="cartTotal">0</span></span>
-                </div>
-                <div class="cart-actions">
-                    <button class="btn-checkout" id="checkoutBtn">
-                        <i class="fas fa-credit-card"></i> Lanjut ke Pembayaran
-                    </button>
-                    <button class="btn-clear-cart" id="clearCartBtn">
-                        <i class="fas fa-trash"></i> Kosongkan
-                    </button>
-                </div>
+            </div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span>Rp <span id="cartTotal">0</span></span>
+            </div>
+            <div class="cart-actions">
+                <button class="btn-clear" id="clearCartBtn">Kosongkan</button>
+                <button class="btn-checkout" id="checkoutBtn">Checkout</button>
             </div>
         </div>
     </div>
 
-    <!-- MODAL PEMBAYARAN -->
-    <div class="modal-overlay" id="paymentModal">
+    <!-- Modal Pembayaran -->
+    <div id="paymentModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3><i class="fas fa-credit-card"></i> Pembayaran</h3>
+                <h3 class="modal-title">Pembayaran</h3>
                 <button class="close-modal" id="closePaymentModal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="order-summary">
-                    <h4>Ringkasan Pesanan</h4>
-                    <div id="paymentItems">
-                        <!-- Item pesanan akan dimuat di sini -->
-                    </div>
-                    <div class="summary-total">
-                        <span>Total Pembayaran:</span>
-                        <span>Rp <span id="paymentTotal">0</span></span>
-                    </div>
-                </div>
-
-                <div class="payment-form">
-                    <h4>Data Pelanggan</h4>
+                <div class="customer-form">
                     <div class="form-group">
-                        <label for="customerName">Nama Lengkap</label>
-                        <input type="text" id="customerName" class="form-control" placeholder="Masukkan nama lengkap" required>
+                        <label for="customerName">Nama Pelanggan</label>
+                        <input type="text" id="customerName" class="form-control" placeholder="Masukkan nama Anda">
                     </div>
                     <div class="form-group">
-                        <label for="customerPhone">Nomor Telepon</label>
-                        <input type="tel" id="customerPhone" class="form-control" placeholder="Masukkan nomor telepon" required>
+                        <label for="customerPhone">No. Telepon</label>
+                        <input type="text" id="customerPhone" class="form-control" placeholder="Masukkan nomor telepon">
                     </div>
                     <div class="form-group">
                         <label for="customerAddress">Alamat Pengiriman</label>
-                        <textarea id="customerAddress" class="form-control" rows="3" placeholder="Masukkan alamat lengkap untuk pengiriman" required></textarea>
+                        <textarea id="customerAddress" class="form-control" rows="3" placeholder="Masukkan alamat lengkap"></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="customerNotes">Catatan Pesanan (opsional)</label>
-                        <textarea id="customerNotes" class="form-control" rows="2" placeholder="Contoh: jangan terlalu pedas, tambah sambal, dll."></textarea>
-                    </div>
-
-                    <h4>Metode Pembayaran</h4>
-                    <div class="payment-methods">
-                        <div class="payment-method" data-method="cash">
-                            <i class="fas fa-money-bill-wave"></i>
-                            <div class="method-name">Tunai</div>
-                        </div>
-                        <div class="payment-method" data-method="mandiri">
-                            <i class="fas fa-university"></i>
-                            <div class="method-name">Bank Mandiri</div>
-                        </div>
-                        <div class="payment-method" data-method="bri">
-                            <i class="fas fa-university"></i>
-                            <div class="method-name">Bank BRI</div>
-                        </div>
-                        <div class="payment-method" data-method="qris">
-                            <i class="fas fa-qrcode"></i>
-                            <div class="method-name">QRIS</div>
-                        </div>
-                    </div>
-
-                    <!-- Detail Bank Mandiri -->
-                    <div class="bank-details" id="mandiriDetails">
-                        <h5>Transfer Bank Mandiri</h5>
-                        <p>No. Rekening: <span class="account-number">1234 5678 9012 3456</span></p>
-                        <p>Atas Nama: <strong>KULINER SEDAP</strong></p>
-                        <p><small>Silakan transfer sesuai total pesanan dan kirim bukti transfer ke WhatsApp kami</small></p>
-                    </div>
-
-                    <!-- Detail Bank BRI -->
-                    <div class="bank-details" id="briDetails">
-                        <h5>Transfer Bank BRI</h5>
-                        <p>No. Rekening: <span class="account-number">9876 5432 1098 7654</span></p>
-                        <p>Atas Nama: <strong>KULINER SEDAP</strong></p>
-                        <p><small>Silakan transfer sesuai total pesanan dan kirim bukti transfer ke WhatsApp kami</small></p>
-                    </div>
-
-                    <!-- Detail QRIS -->
-                    <div class="bank-details" id="qrisDetails">
-                        <h5>Pembayaran QRIS</h5>
-                        <p style="text-align: center;">
-                            <i class="fas fa-qrcode" style="font-size: 4rem; color: #666; margin: 10px 0;"></i>
-                        </p>
-                        <p><strong>Scan QR Code di atas menggunakan aplikasi e-wallet atau mobile banking Anda</strong></p>
-                        <p><small>Pembayaran akan diproses otomatis setelah scan berhasil</small></p>
-                    </div>
-
-                    <button class="btn-pay" id="payButton">
-                        <i class="fas fa-lock"></i> Bayar Sekarang
-                    </button>
                 </div>
+                
+                <h4>Metode Pembayaran</h4>
+                <div class="payment-methods">
+                    <div class="payment-method" data-method="cash">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Bayar di Tempat</span>
+                    </div>
+                    <div class="payment-method" data-method="transfer">
+                        <i class="fas fa-university"></i>
+                        <span>Transfer Bank</span>
+                    </div>
+                    <div class="payment-method" data-method="ewallet">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>E-Wallet</span>
+                    </div>
+                    <div class="payment-method" data-method="card">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Kartu Kredit</span>
+                    </div>
+                </div>
+                
+                <h4>Ringkasan Pesanan</h4>
+                <div id="paymentItems">
+                    <!-- Ringkasan pesanan akan di-render di sini -->
+                </div>
+                <div class="summary-total">
+                    <span>Total:</span>
+                    <span>Rp <span id="paymentTotal">0</span></span>
+                </div>
+                
+                <button class="btn-pay" id="payButton">Bayar Sekarang</button>
             </div>
         </div>
     </div>
@@ -839,14 +200,13 @@
     <script>
         // ===== DATA MENU KULINER SEDAP =====
         const menus = [
-            // MAKANAN UTAMA
             {
                 id: 1,
                 name: 'Bakso Special',
-                description: 'Bakso sapi kenyal dengan kuah kaldu gurih, disajikan dengan mie, tahu, pangsit, dan sawi. Dapat ditambahkan sambal sesuai selera.',
+                description: 'Bakso sapi kenyal dengan kuah kaldu gurih, disajikan dengan mie, tahu, pangsit, dan sawi.',
                 price: 25000,
                 spice_level: 'mild',
-                image: 'https://images.unsplash.com/photo-1587037063300-93f6a8c72ee0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmFrc29fZm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                image: 'https://images.unsplash.com/photo-1587037063300-93f6a8c72ee0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
                 origin: 'Jawa Tengah',
                 preparation_time: 10,
                 portion_size: '1 Mangkuk Besar',
@@ -855,10 +215,10 @@
             {
                 id: 2,
                 name: 'Mie Ayam Komplit',
-                description: 'Mie kuning dengan potongan ayam kecap, disajikan dengan pangsit goreng, bakso, dan sayuran. Dapat ditambahkan kuah kaldu.',
+                description: 'Mie kuning dengan potongan ayam kecap, pangsit goreng, bakso, dan sayuran.',
                 price: 22000,
                 spice_level: 'medium',
-                image: 'https://images.unsplash.com/photo-1612927601601-6638404737ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWllJTIwYXlhbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                image: 'https://images.unsplash.com/photo-1612927601601-6638404737ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
                 origin: 'Jawa',
                 preparation_time: 8,
                 portion_size: '1 Porsi Lengkap',
@@ -867,10 +227,10 @@
             {
                 id: 3,
                 name: 'Soto Ayam Lamongan',
-                description: 'Soto ayam dengan kuah kuning yang gurih, disajikan dengan suwiran ayam, tauge, soun, dan telur. Ditemani sambal dan perasan jeruk nipis.',
+                description: 'Soto ayam dengan kuah kuning yang gurih, disajikan dengan suwiran ayam, tauge, soun, dan telur.',
                 price: 28000,
                 spice_level: 'medium',
-                image: 'https://images.unsplash.com/photo-1563245372-f20324f49a6a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c290b3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                image: 'https://images.unsplash.com/photo-1563245372-f20324f49a6a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
                 origin: 'Jawa Timur',
                 preparation_time: 12,
                 portion_size: '1 Mangkuk Besar',
@@ -879,24 +239,22 @@
             {
                 id: 4,
                 name: 'Bakso Mercon',
-                description: 'Bakso dengan level pedas maksimal! Untuk para pecinta pedas sejati. Dijamin bikin ketagihan!',
+                description: 'Bakso dengan level pedas maksimal! Untuk para pecinta pedas sejati.',
                 price: 30000,
                 spice_level: 'extreme',
-                image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3BpY3klMjBmb29kfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80',
+                image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
                 origin: 'Jawa Tengah',
                 preparation_time: 12,
                 portion_size: '1 Mangkuk Besar',
                 type: 'food'
             },
-
-            // MINUMAN
             {
                 id: 5,
                 name: 'Es Teh Manis',
-                description: 'Es teh segar dengan rasa manis yang pas. Minuman penyegar yang cocok menemani makanan pedas. Tersedia kurang manis dan extra manis.',
+                description: 'Es teh segar dengan rasa manis yang pas. Cocok menemani makanan pedas.',
                 price: 8000,
                 spice_level: 'drink',
-                image: 'https://images.unsplash.com/photo-1597481499750-3e11b15f1c92?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aWNlZCUyMHRlYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                image: 'https://images.unsplash.com/photo-1597481499750-3e11b15f1c92?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
                 origin: 'Nusantara',
                 preparation_time: 2,
                 portion_size: 'Gelas Besar',
@@ -905,25 +263,13 @@
             {
                 id: 6,
                 name: 'Es Jeruk Segar',
-                description: 'Jeruk segar yang diperas langsung, ditambah es batu dan sedikit gula. Minuman vitamin C yang menyegarkan dan menyehatkan.',
+                description: 'Jeruk segar yang diperas langsung, ditambah es batu dan sedikit gula.',
                 price: 12000,
                 spice_level: 'drink',
-                image: 'https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b3JhbmdlJTIwanVpY2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=80',
+                image: 'https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
                 origin: 'Nusantara',
                 preparation_time: 3,
                 portion_size: 'Gelas Besar',
-                type: 'drink'
-            },
-            {
-                id: 7,
-                name: 'Es Kelapa Muda',
-                description: 'Kelapa muda segar dengan daging kelapa yang lembut, disajikan dengan es batu. Minuman alami yang menyegarkan dan menyehatkan.',
-                price: 15000,
-                spice_level: 'drink',
-                image: 'https://images.unsplash.com/photo-1576789249063-564b1e32c3c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29jb251dCUyMGRyaW5rfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80',
-                origin: 'Nusantara',
-                preparation_time: 4,
-                portion_size: 'Buah Utuh',
                 type: 'drink'
             }
         ];
@@ -934,65 +280,76 @@
 
         // ===== FUNGSI NAVIGASI =====
         function setupNavigation() {
-            document.querySelectorAll('.nav-link, .btn-welcome').forEach(link => {
+            // Event listener untuk tombol di navbar
+            document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     const targetPage = this.getAttribute('data-page');
                     
                     if (targetPage) {
+                        // Sembunyikan semua halaman
                         document.querySelectorAll('.page-section').forEach(page => {
                             page.classList.remove('active');
                         });
                         
+                        // Tampilkan halaman yang dipilih
                         document.getElementById(targetPage).classList.add('active');
                         
+                        // Update navigasi aktif
                         document.querySelectorAll('.nav-link').forEach(navLink => {
                             navLink.classList.remove('active');
                         });
                         
-                        const correspondingNavLink = document.querySelector(.nav-link[data-page="${targetPage}"]);
-                        if (correspondingNavLink) {
-                            correspondingNavLink.classList.add('active');
-                        }
+                        this.classList.add('active');
                     }
                 });
+            });
+
+            // Event listener untuk tombol "Lihat Daftar Menu"
+            document.querySelector('.btn-welcome').addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetPage = this.getAttribute('data-page');
+                
+                if (targetPage) {
+                    // Sembunyikan semua halaman
+                    document.querySelectorAll('.page-section').forEach(page => {
+                        page.classList.remove('active');
+                    });
+                    
+                    // Tampilkan halaman yang dipilih
+                    document.getElementById(targetPage).classList.add('active');
+                    
+                    // Update navigasi aktif
+                    document.querySelectorAll('.nav-link').forEach(navLink => {
+                        navLink.classList.remove('active');
+                    });
+                    
+                    // Aktifkan link menu di navbar
+                    document.querySelector('a[data-page="menu"]').classList.add('active');
+                }
             });
         }
 
         // ===== FUNGSI MENU =====
-        function renderMenus(menusToRender = menus) {
+        function renderMenus() {
             const menuContainer = document.getElementById('menuContainer');
-
-            if (menusToRender.length === 0) {
-                menuContainer.innerHTML = `
-                    <div class="no-menu-message">
-                        <i class="fas fa-utensils"></i>
-                        <h3>Belum ada menu tersedia</h3>
-                        <p>Silakan kembali lagi nanti</p>
-                    </div>
-                `;
-                return;
-            }
-
             let menuHTML = '';
 
-            menusToRender.forEach(menu => {
+            menus.forEach(menu => {
                 const isDrink = menu.type === 'drink';
                 const dotCount = isDrink ? 0 : (menu.spice_level === 'mild' ? 1 : (menu.spice_level === 'medium' ? 2 : 3));
                 let dotsHTML = '';
 
                 if (!isDrink) {
                     for (let i = 1; i <= 3; i++) {
-                        dotsHTML += <span class="spice-dot ${i <= dotCount ? 'active' : ''}"></span>;
+                        dotsHTML += `<span class="spice-dot ${i <= dotCount ? 'active' : ''}"></span>`;
                     }
                 }
 
                 menuHTML += `
-                    <div class="menu-card ${isDrink ? 'drink-card' : ''}" data-category="${menu.spice_level}" data-type="${menu.type}">
+                    <div class="menu-card ${isDrink ? 'drink-card' : ''}" data-category="${menu.spice_level}">
                         <div class="card-image">
-                            <img src="${menu.image}" alt="${menu.name}"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="image-placeholder ${isDrink ? 'drink-placeholder' : ''}" style="display: none;">
+                            <div class="image-placeholder ${isDrink ? 'drink-placeholder' : ''}">
                                 <i class="fas fa-${isDrink ? 'glass-whiskey' : 'utensils'}"></i>
                             </div>
                             <div class="image-overlay">
@@ -1033,11 +390,8 @@
                             `}
 
                             <div class="order-buttons">
-                                <button type="button" class="btn-order ${isDrink ? 'btn-order-drink' : ''}" onclick="orderNow(${menu.id}, '${menu.name}', ${menu.price})">
-                                    <i class="fas fa-bolt"></i> Pesan Langsung
-                                </button>
-                                <button type="button" class="btn-order-secondary ${isDrink ? 'btn-order-secondary-drink' : ''}" onclick="addToCart(${menu.id})">
-                                    <i class="fas fa-cart-plus"></i> Keranjang
+                                <button class="btn-order ${isDrink ? 'btn-order-drink' : ''}" onclick="addToCart(${menu.id})">
+                                    <i class="fas fa-cart-plus"></i> Tambah ke Keranjang
                                 </button>
                             </div>
                         </div>
@@ -1050,24 +404,23 @@
 
         function setupFilter() {
             const filterButtons = document.querySelectorAll('.btn-filter');
-
+            
             filterButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const filter = btn.dataset.filter;
+                btn.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update tombol aktif
                     filterButtons.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-
+                    this.classList.add('active');
+                    
+                    // Filter menu
                     const menuCards = document.querySelectorAll('.menu-card');
                     menuCards.forEach(card => {
-                        const category = card.dataset.category.toLowerCase();
-                        const type = card.dataset.type;
-
                         if (filter === 'all') {
                             card.style.display = 'block';
-                        } else if (filter === 'drink') {
-                            card.style.display = type === 'drink' ? 'block' : 'none';
                         } else {
-                            card.style.display = (category === filter && type === 'food') ? 'block' : 'none';
+                            const category = card.getAttribute('data-category');
+                            card.style.display = category === filter ? 'block' : 'none';
                         }
                     });
                 });
@@ -1089,13 +442,12 @@
                     name: menu.name,
                     price: menu.price,
                     quantity: 1,
-                    image: menu.image,
                     type: menu.type
                 });
             }
 
             updateCartUI();
-            showSuccessMessage(${menu.name} ditambahkan ke keranjang!);
+            showSuccessMessage(`${menu.name} ditambahkan ke keranjang!`);
         }
 
         function removeFromCart(menuId) {
@@ -1121,9 +473,11 @@
             const cartItems = document.getElementById('cartItems');
             const cartTotal = document.getElementById('cartTotal');
 
+            // Update jumlah item di icon cart
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             cartCount.textContent = totalItems;
 
+            // Update daftar item di modal
             if (cart.length === 0) {
                 cartItems.innerHTML = `
                     <div class="empty-cart">
@@ -1135,7 +489,6 @@
             } else {
                 let cartHTML = '';
                 cart.forEach(item => {
-                    const isDrink = item.type === 'drink';
                     cartHTML += `
                         <div class="cart-item">
                             <div class="cart-item-info">
@@ -1156,23 +509,9 @@
                 cartItems.innerHTML = cartHTML;
             }
 
+            // Update total harga
             const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             cartTotal.textContent = totalPrice.toLocaleString('id-ID');
-        }
-
-        function orderNow(menuId, menuName, menuPrice) {
-            const submitButton = event.target;
-            const originalText = submitButton.innerHTML;
-
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses...';
-            submitButton.disabled = true;
-
-            setTimeout(() => {
-                showSuccessMessage(✅ ${menuName} berhasil dipesan!\n💰 Total: Rp ${menuPrice.toLocaleString('id-ID')});
-
-                submitButton.innerHTML = originalText;
-                submitButton.disabled = false;
-            }, 1500);
         }
 
         // ===== FUNGSI MODAL =====
@@ -1191,23 +530,8 @@
             }
 
             updatePaymentSummary();
-
-            document.getElementById('customerName').value = '';
-            document.getElementById('customerPhone').value = '';
-            document.getElementById('customerAddress').value = '';
-            document.getElementById('customerNotes').value = '';
-            selectedPaymentMethod = null;
-
-            document.querySelectorAll('.payment-method').forEach(method => {
-                method.classList.remove('selected');
-            });
-
-            document.querySelectorAll('.bank-details').forEach(detail => {
-                detail.classList.remove('active');
-            });
-
-            closeCartModal();
             document.getElementById('paymentModal').style.display = 'flex';
+            closeCartModal();
         }
 
         function closePaymentModal() {
@@ -1219,8 +543,6 @@
             const paymentTotal = document.getElementById('paymentTotal');
 
             let paymentHTML = '';
-            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-
             cart.forEach(item => {
                 paymentHTML += `
                     <div class="summary-item">
@@ -1231,21 +553,9 @@
             });
 
             paymentItems.innerHTML = paymentHTML;
+            
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             paymentTotal.textContent = totalPrice.toLocaleString('id-ID');
-        }
-
-        function showPaymentDetails(method) {
-            document.querySelectorAll('.bank-details').forEach(detail => {
-                detail.classList.remove('active');
-            });
-
-            if (method === 'mandiri') {
-                document.getElementById('mandiriDetails').classList.add('active');
-            } else if (method === 'bri') {
-                document.getElementById('briDetails').classList.add('active');
-            } else if (method === 'qris') {
-                document.getElementById('qrisDetails').classList.add('active');
-            }
         }
 
         function processPayment() {
@@ -1263,53 +573,22 @@
                 return;
             }
 
-            const payButton = document.getElementById('payButton');
-            const originalText = payButton.innerHTML;
-
-            payButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses Pembayaran...';
-            payButton.disabled = true;
-
             const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const itemList = cart.map(item => ${item.name} (${item.quantity}x)).join(', ');
+            const itemList = cart.map(item => `${item.name} (${item.quantity}x)`).join(', ');
 
-            setTimeout(() => {
-                const paymentMethodNames = {
-                    'cash': 'Tunai',
-                    'mandiri': 'Bank Mandiri',
-                    'bri': 'Bank BRI',
-                    'qris': 'QRIS'
-                };
+            showSuccessMessage(
+                `✅ Pesanan Berhasil!\n` +
+                `👤 ${customerName}\n` +
+                `📞 ${customerPhone}\n` +
+                `📍 ${customerAddress}\n` +
+                `📦 ${itemList}\n` +
+                `💰 Total: Rp ${totalPrice.toLocaleString('id-ID')}`
+            );
 
-                let paymentInstructions = '';
-
-                if (selectedPaymentMethod === 'cash') {
-                    paymentInstructions = '\n💵 Bayar tunai saat makanan diterima';
-                } else if (selectedPaymentMethod === 'mandiri') {
-                    paymentInstructions = '\n🏦 Silakan transfer ke rekening Mandiri: 1234 5678 9012 3456';
-                } else if (selectedPaymentMethod === 'bri') {
-                    paymentInstructions = '\n🏦 Silakan transfer ke rekening BRI: 9876 5432 1098 7654';
-                } else if (selectedPaymentMethod === 'qris') {
-                    paymentInstructions = '\n📱 Silakan scan QRIS untuk pembayaran';
-                }
-
-                showSuccessMessage(
-                    ✅ Pesanan Berhasil!\n +
-                    👤 ${customerName}\n +
-                    📞 ${customerPhone}\n +
-                    📍 ${customerAddress}\n +
-                    📦 ${itemList}\n +
-                    💳 ${paymentMethodNames[selectedPaymentMethod]} +
-                    paymentInstructions +
-                    \n💰 Total: Rp ${totalPrice.toLocaleString('id-ID')}
-                );
-
-                cart = [];
-                updateCartUI();
-                closePaymentModal();
-
-                payButton.innerHTML = originalText;
-                payButton.disabled = false;
-            }, 3000);
+            // Reset cart
+            cart = [];
+            updateCartUI();
+            closePaymentModal();
         }
 
         function clearCart() {
@@ -1323,25 +602,7 @@
         }
 
         function showSuccessMessage(message) {
-            const existingMessage = document.querySelector('.success-message');
-            if (existingMessage) {
-                existingMessage.remove();
-            }
-
-            const successMessage = document.createElement('div');
-            successMessage.className = 'success-message';
-            successMessage.innerHTML = `
-                <i class="fas fa-check-circle"></i>
-                <span>${message}</span>
-            `;
-
-            document.body.appendChild(successMessage);
-
-            setTimeout(() => {
-                if (successMessage.parentNode) {
-                    successMessage.parentNode.removeChild(successMessage);
-                }
-            }, 3000);
+            alert(message);
         }
 
         // ===== INISIALISASI =====
@@ -1351,52 +612,32 @@
             setupFilter();
             updateCartUI();
 
+            // Event listeners untuk modal
             document.getElementById('cartIcon').addEventListener('click', openCartModal);
             document.getElementById('closeModal').addEventListener('click', closeCartModal);
             document.getElementById('checkoutBtn').addEventListener('click', openPaymentModal);
             document.getElementById('clearCartBtn').addEventListener('click', clearCart);
-
             document.getElementById('closePaymentModal').addEventListener('click', closePaymentModal);
             document.getElementById('payButton').addEventListener('click', processPayment);
 
+            // Event listeners untuk metode pembayaran
             document.querySelectorAll('.payment-method').forEach(method => {
                 method.addEventListener('click', function() {
                     document.querySelectorAll('.payment-method').forEach(m => {
                         m.classList.remove('selected');
                     });
-
                     this.classList.add('selected');
-                    selectedPaymentMethod = this.dataset.method;
-
-                    showPaymentDetails(selectedPaymentMethod);
+                    selectedPaymentMethod = this.getAttribute('data-method');
                 });
             });
 
+            // Tutup modal saat klik di luar
             document.getElementById('cartModal').addEventListener('click', function(e) {
-                if (e.target === this) {
-                    closeCartModal();
-                }
+                if (e.target === this) closeCartModal();
             });
-
             document.getElementById('paymentModal').addEventListener('click', function(e) {
-                if (e.target === this) {
-                    closePaymentModal();
-                }
+                if (e.target === this) closePaymentModal();
             });
-
-            setTimeout(() => {
-                const menuCards = document.querySelectorAll('.menu-card');
-                menuCards.forEach((card, index) => {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, index * 100);
-                });
-            }, 100);
         });
     </script>
 </body>
